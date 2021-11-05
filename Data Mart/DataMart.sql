@@ -16,25 +16,25 @@ USE DW_Pagos;
 -- --------------------------------------------------------
 
 
-CREATE TABLE DEPARTAMENTO(
+CREATE TABLE DIM_DEPARTAMENTO(
     id_departamento INT NOT NULL PRIMARY KEY, 
     nombre VARCHAR(50)
 );
 
 
-CREATE TABLE CLIENTE(
+CREATE TABLE DIM_CLIENTE(
     id_cliente INT NOT NULL PRIMARY KEY, 
     nombre VARCHAR(90)
 );
 
 
-CREATE TABLE EMPLEADO(
+CREATE TABLE DIM_EMPLEADO(
     id_empleado INT NOT NULL PRIMARY KEY, 
     nombre VARCHAR(90)
 );
 
 
-CREATE TABLE TIEMPO(
+CREATE TABLE DIM_TIEMPO(
     id_tiempo DATE NOT NULL, 
     año INT NULL,
 	mes INT NULL,
@@ -42,7 +42,6 @@ CREATE TABLE TIEMPO(
 	trimestre INT NULL,
     semestre INT NULL,
 	dia_semana VARCHAR(20) NULL,
-    -- fecha DATE NULL, 
     
     PRIMARY KEY CLUSTERED 
     (
@@ -71,8 +70,8 @@ CREATE TABLE HECHOS_PAGO(
     id_tiempo DATE NOT NULL, 
     monto DECIMAL(18,2),
 
-    FOREIGN KEY (id_departamento) REFERENCES DEPARTAMENTO(id_departamento), 
-    FOREIGN KEY (id_cliente) REFERENCES CLIENTE(id_cliente), 
-    FOREIGN KEY (id_empleado) REFERENCES EMPLEADO(id_empleado), 
-    FOREIGN KEY (id_tiempo) REFERENCES TIEMPO(id_tiempo) 
+    FOREIGN KEY (id_departamento) REFERENCES DIM_DEPARTAMENTO(id_departamento), 
+    FOREIGN KEY (id_cliente) REFERENCES DIM_CLIENTE(id_cliente), 
+    FOREIGN KEY (id_empleado) REFERENCES DIM_EMPLEADO(id_empleado), 
+    FOREIGN KEY (id_tiempo) REFERENCES DIM_TIEMPO(id_tiempo) 
 );
