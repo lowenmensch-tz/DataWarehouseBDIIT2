@@ -45,7 +45,8 @@ FROM
 --
 
 SELECT 
-    CONVERT(DATE, FECHA_PAGO) AS id_tiempo,
+    PAGO.ID_PAGO AS id_tiempo, 
+    CONVERT(DATE, FECHA_PAGO) AS fecha,
     DATEPART(YEAR, FECHA_PAGO) AS año, 
     DATEPART(MONTH, FECHA_PAGO) AS mes, 
     DATEPART(WEEK, FECHA_PAGO) AS semana, 
@@ -56,8 +57,6 @@ SELECT
     DATENAME(WEEKDAY, FECHA_PAGO) AS dia_semana 
 FROM 
     PAGO 
-ORDER BY 
-    FECHA_PAGO
 ;
 
 
@@ -70,7 +69,7 @@ SELECT
     DEPARTAMENTO.ID_DEPARTAMENTO AS id_departamento, 
     CLIENTE.ID_CLIENTE AS id_cliente, 
     EMPLEADO.ID_EMPLEADO AS id_empleado, 
-    CONVERT(DATE, PAGO.FECHA_PAGO) AS id_tiempo, 
+    PAGO.ID_PAGO AS id_tiempo, 
     PAGO.MONTO AS monto
 FROM 
     PAGO

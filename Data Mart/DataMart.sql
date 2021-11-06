@@ -35,25 +35,15 @@ CREATE TABLE DIM_EMPLEADO(
 
 
 CREATE TABLE DIM_TIEMPO(
-    id_tiempo DATE NOT NULL, 
+    id_tiempo INT NOT NULL PRIMARY KEY,
+    fecha DATE NULL, 
     año INT NULL,
 	mes INT NULL,
 	semana INT NULL,
 	trimestre INT NULL,
     semestre INT NULL,
-	dia_semana VARCHAR(20) NULL,
+	dia_semana VARCHAR(20) NULL
     
-    PRIMARY KEY CLUSTERED 
-    (
-        id_tiempo ASC
-    ) WITH 
-        (
-            PAD_INDEX = OFF, 
-            STATISTICS_NORECOMPUTE = OFF, 
-            IGNORE_DUP_KEY = OFF, 
-            ALLOW_ROW_LOCKS = ON, 
-            ALLOW_PAGE_LOCKS = ON
-        ) ON [PRIMARY]
 );
 
 
@@ -67,7 +57,8 @@ CREATE TABLE HECHOS_PAGO(
     id_departamento INT NOT NULL, 
     id_cliente INT NOT NULL, 
     id_empleado INT NOT NULL, 
-    id_tiempo DATE NOT NULL, 
+    -- id_tiempo DATE NOT NULL, 
+    id_tiempo INT NOT NULL,
     monto DECIMAL(18,2),
 
     FOREIGN KEY (id_departamento) REFERENCES DIM_DEPARTAMENTO(id_departamento), 
