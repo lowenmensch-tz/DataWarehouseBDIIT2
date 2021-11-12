@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{D33C5BA2-3202-43E6-A6E2-46BC40B4C96E}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{76F4E02F-93B7-4484-B8DD-D9CBA17E7087}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4161,23 +4161,44 @@ FROM
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LLenar tabla de hechos\Origen Hechos Pago">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LLenar tabla de hechos\Destino Hechos Pago">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Llenar tablas dimension">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="211,42"
-          Id="Package\Llenar tablas dimension\Destino de tabla Cliente DW"
-          TopLeft="114,202" />
+          Size="170,42"
+          Id="Package\Llenar tablas dimension\origen tabla Cliente"
+          TopLeft="116,30" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Llenar tablas dimension\Destino de tabla Tiempo DW"
+          TopLeft="835,193" />
         <NodeLayout
           Size="184,42"
           Id="Package\Llenar tablas dimension\Conversión de datos 2"
           TopLeft="565.166666666667,121.833333333333" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Llenar tablas dimension\origen tabla Cliente"
-          TopLeft="116,30" />
         <NodeLayout
           Size="182,42"
           Id="Package\Llenar tablas dimension\Origen de tabla  Departamento"
@@ -4186,6 +4207,10 @@ FROM
           Size="172,42"
           Id="Package\Llenar tablas dimension\Destino de tabla departamento DW"
           TopLeft="354.333333333333,204.166666666667" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Llenar tablas dimension\Origen tabla Tiempo"
+          TopLeft="834,34" />
         <NodeLayout
           Size="134,42"
           Id="Package\Llenar tablas dimension\Conversión de datos 1"
@@ -4199,9 +4224,17 @@ FROM
           Id="Package\Llenar tablas dimension\Destino de tabla Empleado DW"
           TopLeft="569,198.666666666667" />
         <NodeLayout
+          Size="211,42"
+          Id="Package\Llenar tablas dimension\Destino de tabla Cliente DW"
+          TopLeft="114,202" />
+        <NodeLayout
           Size="175,42"
           Id="Package\Llenar tablas dimension\Conversión de datos"
           TopLeft="116.5,117.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Llenar tablas dimension\Conversion Tiempo"
+          TopLeft="837,110" />
         <EdgeLayout
           Id="Package\Llenar tablas dimension.Paths[Salida de origen de OLE DB2]"
           TopLeft="660.166666666667,77.1666666666667">
@@ -4382,21 +4415,9 @@ FROM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Llenar tablas dimension\Origen tabla Tiempo"
-          TopLeft="836,39" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\Llenar tablas dimension\Destino de tabla Tiempo DW"
-          TopLeft="837,198" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Llenar tablas dimension\Conversion Tiempo"
-          TopLeft="839,115" />
         <EdgeLayout
           Id="Package\Llenar tablas dimension.Paths[OLE DB Source Output]"
-          TopLeft="923.5,81">
+          TopLeft="921.5,76">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4418,7 +4439,7 @@ FROM
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Llenar tablas dimension.Paths[Data Conversion Output]"
-          TopLeft="923.5,157">
+          TopLeft="921.5,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4454,20 +4475,15 @@ FROM
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\Destino de tabla departamento DW">
+    design-time-name="Package\Llenar tablas dimension\origen tabla Cliente">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\Origen de tabla Empleados">
+    design-time-name="Package\Llenar tablas dimension\Origen tabla Tiempo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4488,7 +4504,7 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\Origen de tabla  Departamento">
+    design-time-name="Package\Llenar tablas dimension\Origen de tabla Empleados">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4496,7 +4512,20 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\origen tabla Cliente">
+    design-time-name="Package\Llenar tablas dimension\Destino de tabla Tiempo DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar tablas dimension\Origen de tabla  Departamento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4517,36 +4546,7 @@ FROM
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LLenar tabla de hechos\Origen Hechos Pago">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LLenar tabla de hechos\Destino Hechos Pago">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\Origen tabla Tiempo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar tablas dimension\Destino de tabla Tiempo DW">
+    design-time-name="Package\Llenar tablas dimension\Destino de tabla departamento DW">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -61,8 +61,8 @@ CREATE TABLE HECHOS_PAGO(
     id_tiempo INT NOT NULL,
     monto DECIMAL(18,2),
 
-    FOREIGN KEY (id_departamento) REFERENCES DIM_DEPARTAMENTO(id_departamento), 
-    FOREIGN KEY (id_cliente) REFERENCES DIM_CLIENTE(id_cliente), 
-    FOREIGN KEY (id_empleado) REFERENCES DIM_EMPLEADO(id_empleado), 
-    FOREIGN KEY (id_tiempo) REFERENCES DIM_TIEMPO(id_tiempo) 
+    FOREIGN KEY (id_departamento) REFERENCES DIM_DEPARTAMENTO(id_departamento) ON DELETE CASCADE, 
+    FOREIGN KEY (id_cliente) REFERENCES DIM_CLIENTE(id_cliente) ON DELETE CASCADE, 
+    FOREIGN KEY (id_empleado) REFERENCES DIM_EMPLEADO(id_empleado) ON DELETE CASCADE, 
+    FOREIGN KEY (id_tiempo) REFERENCES DIM_TIEMPO(id_tiempo) ON DELETE CASCADE
 );
